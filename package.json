@@ -1,0 +1,17 @@
+{
+  "name": "typescript-starter",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "public/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node ."
+  },
+  "devDependencies": {
+    "typescript": "~2.3.4"
+  },
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "private": true
+}
