@@ -31,7 +31,15 @@ export class Atm implements AtmInterface {
         this.addTransaction(currentTransaction);
 
         if (this.money <= 0 && typeof this.overdraft == "object") {
-          this.overdraft.withdraw(Math.abs(this.money));
+          let overdraftAmt:number = Math.abs(this.money);
+
+          if(this.overdraft.money >= overdraftAmt) {
+            this.overdraft.withdraw(overdraftAmt);
+            this.deposit(overdraftAmt);
+          }
+          else {
+            throw new Error('Insufficient funds in overdraft account');
+          }
         }
     }
 
